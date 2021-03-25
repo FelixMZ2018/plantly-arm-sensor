@@ -1,0 +1,28 @@
+{
+  "name": "node_sensor",
+  "version": "1.0.0",
+  "description": "A node based sensor for Smart Plants",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelixMZ2018/bug-free-bassoon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelixMZ2018/bug-free-bassoon/issues"
+  },
+  "homepage": "https://github.com/FelixMZ2018/bug-free-bassoon#readme",
+  "dependencies": {
+    "ads1115": "^1.2.0",
+    "axios": "^0.21.1",
+    "bh1750": "^0.0.5",
+    "coffee-script": "^1.12.7",
+    "i2c-bus": "^5.2.1",
+    "node-dht-sensor": "^0.4.3",
+    "rpio": "^2.4.2"
+  }
+}
