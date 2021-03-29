@@ -1,4 +1,4 @@
-# bug-free-bassoon
+# Sturdy Pancake Sensor Hub
 
 Sensor Hub to be deployed via Balena.io to gather data for https://github.com/FelixMZ2018/sturdy-pancake-react-server 
 
