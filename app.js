@@ -10,6 +10,8 @@ const soil_moisture_dry = 17000;
 
 const hostname = process.env["HOSTNAME"];
 const UUID = process.env['UUID']
+const NrOfSoilSensors = process.env['NumberOfSoilMoistureSensors']
+
 class SensorData {
   constructor(sensor_type, data_type, index, data) {
     this.sensor_type = sensor_type;
@@ -54,13 +56,39 @@ light.readLight(function (err, value) {
 i2c.openPromisified(1).then(async (bus) => {
   const ads1115 = await ADS1115(bus);
   // ads1115.gain = 1
-  let value = await ads1115.measure("0+GND");
-  console.log(value);
-  const normalized =
-    ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
-    1024;
-  soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
-  sensor_array.push(soil1);
+  if (NrOfSoilSensors < 2) {
+    let value = await ads1115.measure("0+GND");
+    const normalized =
+      ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
+      1024;
+    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    sensor_array.push(soil1);
+  }
+  if (NrOfSoilSensors < 3) {
+    let value = await ads1115.measure("1+GND");
+    const normalized =
+      ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
+      1024;
+    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    sensor_array.push(soil1);
+  }
+  if (NrOfSoilSensors < 4) {
+    let value = await ads1115.measure("2+GND");
+    const normalized =
+      ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
+      1024;
+    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    sensor_array.push(soil1);
+  }
+  if (NrOfSoilSensors < 5) {
+    let value = await ads1115.measure("3+GND");
+    const normalized =
+      ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
+      1024;
+    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    sensor_array.push(soil1);
+  }
+
 });
 rpio.open(11, rpio.OUTPUT, rpio.LOW);
 
