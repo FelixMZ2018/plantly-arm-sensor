@@ -9,8 +9,9 @@ const soil_moisture_wet = 20000;
 const soil_moisture_dry = 17000;
 
 const hostname = process.env["HOSTNAME"];
-const UUID = process.env['UUID']
-const NrOfSoilSensors = process.env['NumberOfSoilMoistureSensors']
+const UUID = process.env['UUID'];
+const NrOfSoilSensors = parseInt(process.env['SOILSENSORS']);
+
 
 class SensorData {
   constructor(sensor_type, data_type, index, data) {
@@ -69,7 +70,7 @@ i2c.openPromisified(1).then(async (bus) => {
     const normalized =
       ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
       1024;
-    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    soil1 = new SensorData("soil_moisture", "analog", 2, normalized);
     sensor_array.push(soil1);
   }
   if (NrOfSoilSensors < 4) {
@@ -77,7 +78,7 @@ i2c.openPromisified(1).then(async (bus) => {
     const normalized =
       ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
       1024;
-    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    soil1 = new SensorData("soil_moisture", "analog", 3, normalized);
     sensor_array.push(soil1);
   }
   if (NrOfSoilSensors < 5) {
@@ -85,7 +86,7 @@ i2c.openPromisified(1).then(async (bus) => {
     const normalized =
       ((value - soil_moisture_dry) / (soil_moisture_wet - soil_moisture_dry)) *
       1024;
-    soil1 = new SensorData("soil_moisture", "analog", 1, normalized);
+    soil1 = new SensorData("soil_moisture", "analog", 4, normalized);
     sensor_array.push(soil1);
   }
 
