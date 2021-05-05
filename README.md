@@ -1,6 +1,10 @@
 # Sturdy Pancake Sensor Hub
 Sensor Hub to be deployed via Balena.io to gather data for https://github.com/FelixMZ2018/sturdy-pancake-react-server 
 
+## Version 3
+
+- Same as version 2 but with a ESP32 based SOC for extra GPIO pins
+
 ## Version 2
 
 Design Goal
