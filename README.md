@@ -1,6 +1,12 @@
 # Sturdy Pancake Sensor Hub
 Sensor Hub to be deployed via Balena.io to gather data for https://github.com/FelixMZ2018/sturdy-pancake-react-server 
 
+## Next steps
+- Verify the MCP3008 switching using CSE0 and CSE1
+- Verify Voltage divider working as intended dropping 5 V sensor voltage to GPIO compatible 3.3V 
+- Design PCB to support dual voltage (5V Sensors and 3.3V logic circuits)
+
+
 ## Version 3
 
 - Same as version 2 but with a ESP32 based SOC for extra GPIO pins
